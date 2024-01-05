@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const errorMiddleware = require("./middlewares/errors");
 const adminRouter = require("./routes/admin");
 
 const PORT = process.env.PORT;
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use("*", cors());
 app.use("/api", adminRouter);
+app.use(errorMiddleware);
 
 const start = async () => {
   try {
