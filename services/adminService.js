@@ -31,6 +31,10 @@ class AdminService {
 
     if (!isPassEquals) throw new ApiError(400, "Invalid password");
 
+    admin.hash = `${Math.random().toString(16)}_${Date.now().toString(16)}`;
+
+    await admin.save();
+
     return admin;
   }
 }
