@@ -1,1 +1,1 @@
-# e-commerce_server
+# e-commerce_server project
